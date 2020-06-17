@@ -18,7 +18,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 // added "useUnifiedTopology: true" to eliminate deprecated warning on the terminal
-mongoose.connect( process.env.MONGODB_URL || "mongodb://localhost/workout", { useNewUrlParser: true,  useFindAndModify: false, useUnifiedTopology: true });
+mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true,  useFindAndModify: false, useUnifiedTopology: true });
 
 //api routes
 app.get("/api/workouts", function(req, res) {
