@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.16.3",
     "mongodb": "^3.5.9",
     "mongojs": "^3.1.0",
