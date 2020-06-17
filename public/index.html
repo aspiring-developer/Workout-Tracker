@@ -2,45 +2,57 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+  <!-- ########## REQUIRED META TAGS ########## -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css" />
   <title>Fitness Tracker</title>
 </head>
 
 <body>
-  <nav>
-    <a href="/">Fitness Tracker</a>
-    <a href="/stats">Dashboard</a>
-  </nav>
-  <div class="wrapper workout">
-    <header>
-      <h1>Fitness Tracker</h1>
-    </header>
-    <div class="ui container workout">
-      <div class="ui raised card m-auto">
-        <div class="prev-workout">
-          <h3>Last Workout</h3>
-          <div>
-            <div class="workout-stats"></div>
-            <div class="buttons">
-              <a id="continue-btn" href="/exercise?" class="huge ui blue button">Continue Workout</a>
-              <a href="/exercise" class="huge positive ui button">New Workout</a>
+  <div class="container mainContainer">
+    <nav class="navbar navbar-dark bg-info justify-content-between">
+      <a class="navbar-brand">Daily Workout Tracker</a>
+      <div class="d-inline">
+        <a href="/" class="mr-4">Fitness Tracker</a>
+        <a href="/stats" class="mr-4">Dashboard</a>
+      </div>
+    </nav>
+    <div class="wrapper workout d-flex justify-content-center mt-4 pt-4">
+      <header>
+        <h4>Track Your Fitness</h4>
+      </header>
+      <div class="ui container workout">
+        <div class="ui raised displayWrapperMain m-auto">
+          <div class="prev-workout">
+            <h5>Last Workout</h5>
+            <hr>
+            <div>
+              <!-- "You have not created a workout yet!" dynamic texts from workout.js go in this empty div below-->
+              <div class="col workout-stats"></div>
+              <div class="col buttons bg-info workoutButton">
+                <a id="continue-btn" href="/exercise?" class="btn huge ui blue button">Continue Workout</a>
+                <a id="new-workout-btn" href="/exercise" class="btn huge positive ui button">New Workout</a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="new-workout">
-          <h3>Create Your First Workout</h3>
+          <div class="new-workout">
+            <h3>Create Your First Workout</h3>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  </div>
   <div id="toast">
     Workout Added Successfully!
   </div>
+  </div> <!-- .mainContainer ends -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
   <script src="/api.js"></script>
   <script src="/workout.js"></script>
   <script src="/index.js"></script>

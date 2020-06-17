@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <title>Fitness Chart</title>
-  </head>
-  <nav>
-    <a href="/">Fitness Tracker</a>
-  </nav>
-  <body>
-    <div class="container mt">
-      <h1 class="text-center">Workout Dashboard</h1>
-      <div class="row mt">
+
+<head>
+  <!-- ########## REQUIRED META TAGS ########## -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css" />
+   <title>Fitness Chart</title>
+</head>
+
+<body>
+  <div class="container mainContainer">
+    <nav class="navbar navbar-dark bg-info justify-content-between">
+      <a class="navbar-brand">Daily Workout Tracker</a>
+      <div class="d-inline">
+        <a href="/" class="mr-4">Fitness Tracker</a>
+        <!-- <a href="/stats" class="mr-4">Dashboard</a>  -->
+      </div>
+    </nav>
+    <header>
+      <h4 class="text-center mt-4">Workout Dashboard</h4>
+    </header>
+    <div class="container d-flex justify-content-center mt-4 pt-4 bg-white ml-auto .displayWrapperDashboard">
+      <div class="row">
         <div class="col-md-6">
           <canvas id="canvas"></canvas>
         </div>
@@ -36,8 +41,14 @@
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="/api.js"></script>
-    <script src="/stats.js"></script>
-  </body>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="/api.js"></script>
+  <script src="/stats.js"></script>
+</body>
+
 </html>
