@@ -1,4 +1,4 @@
-let dotenv = require("dotenv");
+//let dotenv = require("dotenv");
 let express = require("express"); 
 let mongodb = require("mongodb"); 
 let mongoose = require("mongoose");
@@ -19,10 +19,10 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 // added "useUnifiedTopology: true" to eliminate deprecated warning on the terminal
-mongoose.connect( process.env.MONGODB_URL || "mongodb://localhost/workout", { useNewUrlParser: true,  useFindAndModify: false, useUnifiedTopology: true });
+mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true,  useFindAndModify: false, useUnifiedTopology: true });
 
 //api routes
-- app.get("/", function(req, res) {
+app.get("/", function(req, res) {
    res.sendFile(path.join(__dirname + "./public/index.html"));  
   }); 
 
