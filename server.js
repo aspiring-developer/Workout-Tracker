@@ -21,6 +21,10 @@ app.use(express.urlencoded({ extended: true }));
 mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true,  useFindAndModify: false, useUnifiedTopology: true });
 
 //api routes
+- app.get("/", function(req, res) {
+   res.sendFile(path.join(__dirname + "./public/index.html"));  
+  }); 
+
 app.get("/api/workouts", function(req, res) {
   db.Workout.find({}).then(function(data) {
     res.json(data);
