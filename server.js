@@ -1,7 +1,7 @@
 let express = require("express");
 let mongodb = require("mongodb");
 let mongoose = require("mongoose");
-let db = require("./seeders");
+//let db = require("./models");
 let logger = require("morgan");
 let mongojs = require("mongojs");
 let path = require("path");
@@ -15,7 +15,7 @@ app.use(logger("dev"));
 app.use(express.static("public"));
 
 //required if using req.body object
-app.use(express.urlencoded({ extended: true }));   let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/heroku_8fr0pjng";
+app.use(express.urlencoded({ extended: true }));   let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
  mongoose.connect(MONGODB_URI);
 
  app.get("/api/workouts", function (req, res) {
