@@ -15,7 +15,7 @@ app.use(logger("dev"));
 app.use(express.static("public"));
 
 //required if using req.body object
-app.use(express.urlencoded({ extended: true }));   let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
+app.use(express.urlencoded({ extended: true }));   let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/heroku_8fr0pjng";
  mongoose.connect(MONGODB_URI);
 
  app.get("/api/workouts", function (req, res) {
