@@ -17,21 +17,24 @@ app.use(express.static("public"));
 //required if using req.body object
 app.use(express.urlencoded({ extended: true }));
 
-let MONGODB_URI = process.env.MONGODB_URL || "mongodb://localhost/workout";
-const options = {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-  family: 4 // Use IPv4, skip trying IPv6
-};
-mongoose.connect(MONGODB_URI,options);
 // added "useUnifiedTopology: true" to eliminate deprecated warning on the terminal
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true });
+ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true });
+
+/* ######## TRIED DIFFERENT WAY, BUT DID NOT WORK ######## */
+    //let MONGODB_URI = process.env.MONGODB_URL || "mongodb://localhost/workout";
+    // const options = {
+    //   useNewUrlParser: true,
+    //   useCreateIndex: true,
+    //   useFindAndModify: false,
+    //   family: 4 // Use IPv4, skip trying IPv6
+    // };
+    // mongoose.connect(MONGODB_URI, options);
+/* ####################################### */
 
 //api routes
-// app.get("/", function(req, res) {
-//    res.sendFile(path.join(__dirname + "./public/index.html"));  
-//   }); 
+    // app.get("/", function(req, res) {
+    //    res.sendFile(path.join(__dirname + "./public/index.html"));  
+    //   }); 
 
 app.get("/api/workouts", function (req, res) {
   db.Workout.find({}).then(function (data) {
@@ -81,7 +84,8 @@ app.get("all", function (req, res) {
   })
 });
 
-// app.listen(PORT, function () {
-//   console.log(`App running on http://localhost:${PORT}`)
-// });
-app.listen(process.env.PORT || 8080);
+app.listen(PORT, function () {
+  console.log(`App running on http://localhost:${PORT}`)
+});
+
+// app.listen(process.env.PORT || 8080);
