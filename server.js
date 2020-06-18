@@ -7,7 +7,7 @@ let mongojs = require("mongojs");
 let path = require("path");
 
 let app = express();
-let PORT = process.env.PORT || 8080;
+let PORT = process.env.PORT || 5000;
 
 app.use(logger("dev"));
 
@@ -84,7 +84,7 @@ app.get("all", function (req, res) {
   })
 });
 
-app.listen(PORT, function () {
+app.listen(process.env.PORT || 5000, function () {
   console.log(`App running on http://localhost:${PORT}`)
 });
 
