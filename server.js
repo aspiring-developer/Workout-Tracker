@@ -1,7 +1,7 @@
 let express = require("express");
 let mongodb = require("mongodb");
 let mongoose = require("mongoose");
-//let db = require("./models");
+let db = require("./models");
 let logger = require("morgan");
 let mongojs = require("mongojs");
 let path = require("path");
@@ -15,28 +15,10 @@ app.use(logger("dev"));
 app.use(express.static("public"));
 
 //required if using req.body object
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));   let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
+ mongoose.connect(MONGODB_URI);
 
-// added "useUnifiedTopology: true" to eliminate deprecated warning on the terminal
-//  mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/heroku_8fr0pjng", { useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true });
-
-/* ######## TRIED DIFFERENT WAY, BUT DID NOT WORK ######## */
-   let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/heroku_8fr0pjng";
-    // const options = {
-    //   useNewUrlParser: true,
-    //   useCreateIndex: true,
-    //   useFindAndModify: false,
-    //   family: 4 // Use IPv4, skip trying IPv6
-    // };
-     mongoose.connect(MONGODB_URI);
-/* ####################################### */
-
-//api routes
-    // app.get("/", function(req, res) {
-    //    res.sendFile(path.join(__dirname + "./public/index.html"));  
-    //   }); 
-
-app.get("/api/workouts", function (req, res) {
+ app.get("/api/workouts", function (req, res) {
   db.Workout.find({}).then(function (data) {
     res.json(data);
   })
