@@ -73,6 +73,7 @@ app.get("all", function (req, res) {
   })
 });
 
-app.listen(PORT, function () {
-  console.log(`App running on http://localhost:${PORT}`)
-});
+// app.listen(PORT, function () {
+//   console.log(`App running on http://localhost:${PORT}`)
+// });
+app.listen(process.env.PORT || 8080);
