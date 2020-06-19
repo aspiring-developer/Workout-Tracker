@@ -7,7 +7,7 @@ let mongojs = require("mongojs");
 let path = require("path");
 
 let app = express();
-let PORT = process.env.PORT || 5000;
+let PORT = process.env.PORT || 8080;
 
 app.use(logger("dev"));
 
@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: true }));   let MONGODB_URI = process.env
 // routing to the workout UI dashboard
 app.get("/stats", function (req, res) {
   res.sendFile(path.join(__dirname, "./public/stats.html"))
-});
+});  
 
 // routing to the fitness tracker UI where users can interact with the app
 app.get("/exercise", function (req, res) {
@@ -56,7 +56,7 @@ app.post("/api/workouts", function ({ body }, res) {
   })
 });
 
-app.get("all", function (req, res) {
+app.get("/all", function (req, res) {
   db.Workout.find({}), (function (error, data) {
     if (error) {
       res.send(error)
@@ -66,7 +66,7 @@ app.get("all", function (req, res) {
   })
 });
 
-app.listen(process.env.PORT || 5000, function () {
+app.listen(process.env.PORT || 8080, function () {
   console.log(`App running on http://localhost:${PORT}`)
 });
 
