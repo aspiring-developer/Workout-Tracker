@@ -4,7 +4,7 @@ An workout tracker app: built using NodeJs, Express, MongoDB with Mongoose Schem
 
 **App's Screenshot:**
 
-- 
+  -  
 
 **Deployed App's Link:**
 
