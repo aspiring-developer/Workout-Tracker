@@ -8,15 +8,16 @@ let path = require("path");
 
 let app = express();
 let PORT = process.env.PORT || 8080;
-
+let db = "heroku_q5w744xg";
 app.use(logger("dev"));
 
 // required if using static contents (html, css, images)
 app.use(express.static("public"));
 
 //required if using req.body object
-app.use(express.urlencoded({ extended: true }));   let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
- mongoose.connect(MONGODB_URI);
+app.use(express.urlencoded({ extended: true }));   
+let MONGODB_URI = process.env.MONGODB_URI || "mongodb://user1:password1@ds141786.mlab.com:41786/heroku_q5w744xg";
+ mongoose.connect(MONGODB_URI, {useUnifiedTopology: true, useNewUrlParser: true});
 
  app.get("/api/workouts", function (req, res) {
   db.Workout.find({}).then(function (data) {
