@@ -1,6 +1,6 @@
 ## Workout-Tracker
 
-An workout tracker app: built using NodeJs, Express, MongoDB with Mongoose Schema.
+A workout tracker app: built using NodeJs, Express, MongoDB with Mongoose Schema.
 
 ### User Story
 ```
