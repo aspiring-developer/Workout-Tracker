@@ -1,7 +1,7 @@
 let express = require("express");
 let mongodb = require("mongodb");
 let mongoose = require("mongoose");
-//let db = require("./models");
+let db = require("./models");
 let logger = require("morgan");
 let mongojs = require("mongojs");
 let path = require("path");
@@ -17,7 +17,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));   
 let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
 // "mongodb://user1:password1@ds141786.mlab.com:41786/heroku_q5w744xg"
- mongoose.connect(MONGODB_URI, {useUnifiedTopology: true, useNewUrlParser: true});
+ mongoose.connect(MONGODB_URI, {useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false});
 
  app.get("/api/workouts", function (req, res) {
   db.Workout.find({}).then(function (data) {
