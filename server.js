@@ -1,10 +1,11 @@
 let express = require("express");
 let mongodb = require("mongodb");
 let mongoose = require("mongoose");
-let db = require("./models");
+
 let logger = require("morgan");
 let mongojs = require("mongojs");
 let path = require("path");
+let db = require("./models");
 
 let app = express();
 let PORT = process.env.PORT || 8080;
