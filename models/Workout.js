@@ -45,8 +45,8 @@ const WorkoutSchema = new Schema({
         return total + exercise.duration;
     }, 0);
 });
-const workout = mongoose.model("Workout", WorkoutSchema);
+const Workout = mongoose.model("Workout", WorkoutSchema);
 
-module.exports = workout;
+module.exports = Workout;
 
   
